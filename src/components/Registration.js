@@ -1,0 +1,68 @@
+import React, { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+
+const registrationApi = 'http://localhost:1337/api/demographics';
+
+export default function Registration(props) {
+
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zip, setZip] = useState('');
+    const [phone, setPhone] = useState('');
+    const onSave = props.onSave
+
+    async function handleRegistrationAdd(event) {
+        event.preventDefault()
+        console.log('Submitting....');
+
+        await fetch(`${registrationApi}`, {
+            method: 'post',
+            body:  JSON.stringify({ address, city, state, zip, phone }),
+            headers:  {
+                'Content-Type':  'application/json',
+            },
+
+        })
+
+        console.log('Submitted successfully');
+        onSave();
+    }
+
+    return (
+        <Form onSubmit={handleRegistrationAdd} title='Demographics Form'>
+
+            <Form.Group className='mb-3' controlId='form.address'>
+                <Form.Label>Address</Form.Label>
+                <Form.Control type='text' placeholder='Enter your address' value={address} onChange={e => setAddress(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group className='mb-3' controlId='form.city'>
+                <Form.Label>City</Form.Label>
+                <Form.Control type='text' placeholder='Enter your city' value={city} onChange={e => setCity(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group className='mb-3' controlId='form.state'>
+                <Form.Label>State</Form.Label>
+                <Form.Control type='text' placeholder='Enter your state' value={state} onChange={e => setState(e.target.value)} />
+            </Form.Group>
+
+            <Form.Group className='mb-3' controlId='form.zip'>
+                <Form.Label>Zip</Form.Label>
+                <Form.Control type='text' placeholder='Enter your zip code' value={zip} onChange={e => setZip(parseInt(e.target.value))} />
+            </Form.Group>
+
+            <Form.Group className='mb-3' controlId='form.phone'>
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control type='text' placeholder='Enter your phone number' value={phone} onChange={e => setPhone(parseInt(e.target.value))} />
+            </Form.Group>
+
+            <Button variant="primary" type="submit">Submit</Button>
+
+        </Form>
+    )
+}
+
+
+
+
