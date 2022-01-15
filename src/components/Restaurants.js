@@ -1,30 +1,29 @@
-import React from 'react';
-import { Card, Col, Row, Container } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container } from 'react-bootstrap';
 
-const API = 'http://localhost:1337/api/demographics';
+const API = 'http://localhost:1337/api/restaurants';
 
-export default function Restaurants(data) {
-    fetch(`${API}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(response => response.json())
-        .then(data => console.log(data))
+
+export default function Restaurants() {
+
+    const [restaurants, setRestaurants] = useState({});
+
+    useEffect(() => {
+        getRestaurantsWithFetch();
+    }, []);
+
+    const getRestaurantsWithFetch = async () => {
+        const response = await fetch(API);
+        const jsonData = await response.json({});
+        setRestaurants(jsonData);
+        console.log(jsonData);
+    };
 
     return (
 
         <Container className='showRestaurants mt-4'>
-                <ul>
-                    {data.demographics.map(demo => (
-                        <Card className='mt-4' style={{ width: '40rem' }} key={demo.id}>
-                            <Card.Body>
-                                <li>{demo.city}</li>
-                            </Card.Body>
-                        </Card>
-                    ))}
-                </ul>
+            <h1>This is where the restaurant name should be... </h1>
+               <p>{restaurants.name}</p>
         </Container >
-    )
+    );
 }
