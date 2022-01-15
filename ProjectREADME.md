@@ -3,18 +3,19 @@
     -  React-Dom will load with it
 2.  React-Bootstrap
 3.  Bootstrap
+4.  React-Router-Dom - used 5.3.0 - had to load because pages wouldn't change from home page
 
 ##  Referenced:
 
 ###  1)  index.js:
-1. import { BrowserRouter } from 'react-router-dom';
+1. import { BrowserRouter  } from 'react-router-dom';
 2. Add <BrowserRouter> around <App />
 
 ###  2)  Nodemon - proof of life
 
 ###  3)  app.js:
 1.  import React from 'react';
-2.  import { Switch, Route } from 'react-router-dom';
+2.  import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 3.  import 'bootstrap/dist/css/bootstrap.min.css';
 
 ###  4)  Create the components folder in src

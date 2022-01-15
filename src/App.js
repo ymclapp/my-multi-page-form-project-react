@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 
 import NavMenu from './components/partials/NavMenu';
@@ -10,6 +10,7 @@ import Footer from './components/partials/Footer';
 
 import Home from './components/Home';
 import Registration from './components/Registration';
+import Restaurants from './components/Restaurants';
 
 
 
@@ -22,12 +23,16 @@ function App() {
       <Header />
       <Switch>
 
-        <Route path={['/', '/home']}>
+        <Route exact path={['/', '/home']}>
           <Home />
         </Route>
 
         <Route path='/Registration'>
           <Registration />
+        </Route>
+
+        <Route path='/Restaurants'>
+          <Restaurants />
         </Route>
 
       </Switch>

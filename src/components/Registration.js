@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
-const registrationApi = 'http://localhost:1337/api/demographics';
+const registrationApi = 'http://localhost:1337/api/demographic';
 
 export default function Registration(props) {
 
@@ -18,12 +18,14 @@ export default function Registration(props) {
 
         await fetch(`${registrationApi}`, {
             method: 'post',
-            body:  JSON.stringify({ address, city, state, zip, phone }),
             headers:  {
                 'Content-Type':  'application/json',
             },
 
+            body:  JSON.stringify({ address, city, state, zip, phone }),
         })
+        .then(response => response.json())
+        .then(data => console.log(data));
 
         console.log('Submitted successfully');
         onSave();
@@ -49,20 +51,17 @@ export default function Registration(props) {
 
             <Form.Group className='mb-3' controlId='form.zip'>
                 <Form.Label>Zip</Form.Label>
-                <Form.Control type='text' placeholder='Enter your zip code' value={zip} onChange={e => setZip(parseInt(e.target.value))} />
+                <Form.Control type='text' placeholder='Enter your zip code' value={zip} onChange={e => setZip(e.target.value)} />
             </Form.Group>
 
             <Form.Group className='mb-3' controlId='form.phone'>
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type='text' placeholder='Enter your phone number' value={phone} onChange={e => setPhone(parseInt(e.target.value))} />
+                <Form.Control type='text' placeholder='Enter your phone number' value={phone} onChange={e => setPhone(e.target.value)} />
             </Form.Group>
 
             <Button variant="primary" type="submit">Submit</Button>
 
         </Form>
     )
-}
-
-
-
+};
 
