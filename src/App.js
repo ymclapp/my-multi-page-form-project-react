@@ -10,7 +10,7 @@ import Footer from './components/partials/Footer';
 
 import Home from './components/Home';
 import Registration from './components/Registration';
-import Restaurants from './components/Restaurants';
+import Demographics from './components/Demographics';
 
 
 
@@ -31,8 +31,8 @@ function App() {
           <Registration />
         </Route>
 
-        <Route path='/Restaurants'>
-          <Restaurants />
+        <Route path='/Demographics'>
+          <Demographics />
         </Route>
 
       </Switch>

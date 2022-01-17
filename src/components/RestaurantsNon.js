@@ -23,19 +23,21 @@ export default function Restaurants() {
 
     return (
 
+
         // <Container className='showRestaurants mt-4'>
         //     <h1>This is where the restaurant name should be... </h1>
         //        <p>{restaurants.name}</p>
         // </Container >
-        <div className = 'Restaurants' >
-          {/* <h3>This will show the raw data of a particular restaurant - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants/1</h3>
+        <div className='Restaurants' >
+            {/* <h3>This will show the raw data of a particular restaurant - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants/1</h3>
           <p>{JSON.stringify(restaurants.data)}</p> */}
 
-          <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
-          <p>{JSON.stringify(restaurants.data)}</p>
+            <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
+            <p>{JSON.stringify(restaurants.data)}</p>
 
-          {/* <h3>This will show the raw data for all demographics - curly brace JSON.stringify(demographics.data) curly brace and use API = http://localhost:1337/api/demographics</h3>
+
+            {/* <h3>This will show the raw data for all demographics - curly brace JSON.stringify(demographics.data) curly brace and use API = http://localhost:1337/api/demographics</h3>
           <p>{JSON.stringify(demographics.data)}</p> */}
-          </div>
+        </div>
     );
 }
