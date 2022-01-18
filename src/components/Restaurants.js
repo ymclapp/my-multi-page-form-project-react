@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+//import { Container } from 'react-bootstrap';
 
 const API = 'http://localhost:1337/api/restaurants';
 
 
 export default function Restaurants() {
 
-    const [restaurants, setRestaurants] = useState({});
+    const [restaurants, setRestaurants] = useState({data:[]});
 
     useEffect(() => {
         getRestaurantsWithFetch();
@@ -33,8 +33,9 @@ export default function Restaurants() {
           <p>{JSON.stringify(restaurants.data)}</p> */}
 
             <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
-            <p>{JSON.stringify(restaurants.data)}</p>
-
+            {/* <p>{JSON.stringify(restaurants.data)}</p> */}
+            {restaurants.data.map((restaurant) => <p>{restaurant.attributes.name}</p>)}
+            {/* {restaurants && <RestaurantList restaurants={restaurants}/>} */}
 
             {/* <h3>This will show the raw data for all demographics - curly brace JSON.stringify(demographics.data) curly brace and use API = http://localhost:1337/api/demographics</h3>
           <p>{JSON.stringify(demographics.data)}</p> */}

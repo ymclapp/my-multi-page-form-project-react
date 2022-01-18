@@ -19,6 +19,8 @@ export default function Demographics() {
         console.log(jsonData);
     };
 
+    
+
     return (
         <Container className='showDemographics mt-4'>
             <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
