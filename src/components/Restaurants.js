@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 
 const API = 'http://localhost:1337/api/restaurants';
 
+//************  to run this, you need to cd into my-project ******************************/
+
 
 export default function Restaurants() {
 

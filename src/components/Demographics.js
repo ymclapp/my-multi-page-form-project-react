@@ -6,7 +6,7 @@ const API = 'http://localhost:1337/api/demographics';
 
 export default function Demographics() {
 
-    const [demographics, setDemographics] = useState({});
+    const [demographics, setDemographics] = useState({data: []});
 
     useEffect(() => {
         getDemographicsWithFetch();
@@ -23,8 +23,12 @@ export default function Demographics() {
 
     return (
         <Container className='showDemographics mt-4'>
-            <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
-            <p>{JSON.stringify(demographics.data)}</p>
+            {/* <h3>This will show the raw data for all restaurants - curly brace JSON.stringify(restaurants.data) curly brace and use API = http://localhost:1337/api/restaurants</h3>
+            <p>{JSON.stringify(demographics.data)}</p> */}
+            <ul>
+            {demographics.data.map((demographic) => 
+            <li>{demographic.attributes.address}, {demographic.attributes.city}, {demographic.attributes.state}  {demographic.attributes.zip}</li>)}
+            </ul>
         </Container >
 
     );
