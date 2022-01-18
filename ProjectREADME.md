@@ -32,6 +32,8 @@
 
 ###  8)  Added sticky to the navbar and also created an offcanvas navbar
 
-
+##  Strapi:
+1.  For the initial state for the data that you will "get", you have to use setState({data: []}); to be able to get the .map to work in the return
+2.  
 
 
