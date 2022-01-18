@@ -12,6 +12,8 @@ import Home from './components/Home';
 import Registration from './components/Registration';
 import Demographics from './components/Demographics';
 
+import Restaurants from './components/Restaurants';
+
 
 
 
@@ -33,6 +35,10 @@ function App() {
 
         <Route path='/Demographics'>
           <Demographics />
+        </Route>
+
+        <Route path='/Restaurants'>
+          <Restaurants />
         </Route>
 
       </Switch>
