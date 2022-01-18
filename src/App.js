@@ -10,6 +10,7 @@ import Footer from './components/partials/Footer';
 
 import Home from './components/Home';
 import Registration from './components/Registration';
+import Login from './components/auth/login';
 import Demographics from './components/Demographics';
 
 import Restaurants from './components/Restaurants';
@@ -31,6 +32,10 @@ function App() {
 
         <Route path='/Registration'>
           <Registration />
+        </Route>
+
+        <Route path='/Login'>
+          <Login />
         </Route>
 
         <Route path='/Demographics'>
