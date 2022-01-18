@@ -1,33 +1,28 @@
-import './Login.css';
+import '../auth/login.css';
 import { FloatingLabel, Form, Button } from 'react-bootstrap';
-import { Redirect } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
 
 export default function Login() {
+
+    const { login }= useAuth();
     
     
     function handleLoginSubmit(event) {
         event.preventDefault();
 
         const form = event.target;
-        const { username, firstName, lastName, email, password } = form.elements;
+        const { username, password } = form.elements;
 
         const loginData = {
             username:  username.value,
-            firstName:  firstName.value,
-            lastName:  lastName.value,
-            email:  email.value,
             password:  password.value,
         };
         console.log(loginData);
 
-        Login(loginData);
+        login(loginData);
         form.reset();
     }
-
-    // if (user) {
-    //     return <Redirect to='/'/>
-    // }
 
     return (
         <>
@@ -37,24 +32,6 @@ export default function Login() {
                 
                 <FloatingLabel controlId='floatingInput' label='Username:  ' className='loginUsername'>
                     <Form.Control type='text' name='username' />
-                </FloatingLabel>
-
-                <br />
-
-                <FloatingLabel controlId='floatingInput' label='First Name:  ' className='loginFirstName'>
-                    <Form.Control type='text' name='firstName' />
-                </FloatingLabel>
-
-                <br />
-
-                <FloatingLabel controlId='floatingInput' label='Last Name:  ' className='loginLastName'>
-                    <Form.Control type='text' name='lastName' />
-                </FloatingLabel>
-
-                <br />
-
-                <FloatingLabel controlId='floatingInput' label='Email:  ' className='loginEmail'>
-                    <Form.Control type='text' name='email' />
                 </FloatingLabel>
 
                 <br />
